@@ -1,9 +1,9 @@
-import 'package:chit_chat/screens/create_password.dart';
+import 'package:chit_chat/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
-  static String id="sign_up_screen";
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen ({Key? key}) : super(key: key);
+  static String id="forget_password_screen";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -11,22 +11,22 @@ class SignUpScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children:[
               Image(
-                image: const AssetImage("assets/2.jpg"),
-                height: MediaQuery.of(context).size.height/2.8,
+                image: const AssetImage("assets/1.jpg"),
+                height: MediaQuery.of(context).size.height/3,
                 width: MediaQuery.of(context).size.width,
               ),
               const Padding(
                 padding: EdgeInsets.only(bottom: 5),
-                child: Text("Sign Up",
+                child: Text("Forget Password",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                   ),),
               ),
-              const Text("Create an account to get start.",
+              const Text("Reset your account password?",
                 style: TextStyle(
                   fontSize: 16,
                 ),),
@@ -48,12 +48,14 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30,),
-              OutlinedButton(onPressed: (){},
+              OutlinedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder:(context)=>const SignUpScreen()));
+              },
                 style: OutlinedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     fixedSize: Size(MediaQuery.of(context).size.width,50)
                 ),
-                child:const Text("Sign Up",
+                child:const Text("Sign In",
                   style:TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -61,23 +63,6 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Already have an account?",
-                    style:TextStyle(
-
-                    ) ,),
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context)=>const CreatePasswordScreen()));
-                  },
-                    child: Text("Sign In",style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                    ),),
-
-                  )
-                ],
-              ),
 
             ],
           ),

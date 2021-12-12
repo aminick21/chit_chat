@@ -1,3 +1,5 @@
+import 'package:chit_chat/screens/create_password.dart';
+import 'package:chit_chat/screens/forget_password_screen.dart';
 import 'package:chit_chat/screens/sign_in_screen.dart';
 import 'package:chit_chat/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,13 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xffed4c58),
         backgroundColor: const Color(0xfff3f4f8),
       ),
-      home: const SignInScreen(),
+      initialRoute: SignInScreen.id,
+      routes: {
+        SignInScreen.id:(context)=>const SignInScreen(),
+        SignUpScreen.id:(context)=>const SignUpScreen(),
+        CreatePasswordScreen.id:(context)=>const CreatePasswordScreen(),
+        ForgetPasswordScreen.id:(context)=>const ForgetPasswordScreen(),
+      },
     );
   }
 }

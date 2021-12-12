@@ -2,8 +2,9 @@ import 'package:chit_chat/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+static String id="sign_in_screen";
 
+  const SignInScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,12 +19,14 @@ class SignInScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height/3,
                 width: MediaQuery.of(context).size.width,
               ),
-              const Text("Welcome Back",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2,
-                fontSize: 30,
-              ),),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Text("Welcome Back",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),),
+              ),
               const Text("Sign to get start.",
                 style: TextStyle(
                   fontSize: 16,
@@ -66,9 +69,13 @@ class SignInScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Checkbox(
-                      value: false,
-                      onChanged: (value){}),
+                  SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: Checkbox(
+                        value: false,
+                        onChanged: (value){}),
+                  ),
                   const Text("Remember me",
                     style:TextStyle(
 
