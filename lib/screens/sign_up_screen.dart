@@ -1,3 +1,4 @@
+import 'package:chit_chat/screens/home_screen.dart';
 import 'package:chit_chat/screens/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: ()async{
                   try {
                     await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                    Navigator.pushNamed(context,SignInScreen.id);
+                    Navigator.pushNamed(context,HomeScreen.id);
                   }catch(e){
                     print(e);
                     }

@@ -1,3 +1,4 @@
+import 'package:chit_chat/screens/home_screen.dart';
 import 'package:chit_chat/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,7 +12,7 @@ static String id="sign_in_screen";
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-   String phoneNumber="";
+   String email="";
    String password="";
    final _auth=FirebaseAuth.instance;
   @override
@@ -54,16 +55,15 @@ class _SignInScreenState extends State<SignInScreen> {
                 TextField(
                   onChanged: (value){
                     setState(() {
-                      phoneNumber=value;
+                      email=value;
                     });
                   },
-                  keyboardType:TextInputType.phone ,
                   decoration: InputDecoration(
-                    hintText: "Enter number here",
+                    hintText: "Enter email here",
                     filled: true,
                     fillColor: Theme.of(context).backgroundColor,
                     border: InputBorder.none,
-                    prefixIcon:const Icon(Icons.phone),
+                    prefixIcon:const Icon(Icons.mail_outlined),
                   ),
                 ),
                 const SizedBox(height: 10,),
@@ -116,9 +116,16 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 const SizedBox(height: 20,),
                 OutlinedButton(
-                  onPressed: (){
-                   print(phoneNumber);
-                    print(password);
+                  onPressed: ()async {
+                try {
+                  final newUser = await _auth.signInWithEmailAndPassword(
+                      email: email,
+                      password: password);
+                    Navigator.pushNamed(context,HomeScreen.id);
+
+                }catch(e){
+                  print(e);
+                }
                   },
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,

@@ -1,4 +1,5 @@
 import 'package:chit_chat/screens/forget_password_screen.dart';
+import 'package:chit_chat/screens/home_screen.dart';
 import 'package:chit_chat/screens/sign_in_screen.dart';
 import 'package:chit_chat/screens/sign_up_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         SignInScreen.id:(context)=>const SignInScreen(),
         SignUpScreen.id:(context)=>const SignUpScreen(),
         ForgetPasswordScreen.id:(context)=>const ForgetPasswordScreen(),
+        HomeScreen.id:(context)=>const HomeScreen(),
       },
     );
   }
